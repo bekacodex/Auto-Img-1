@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img Text Infotrmation </title>
+    <link rel="stylesheet" href="imgtexyt.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+
+<body>
+    <div class="img-slider">
+        <div class="slider active">
+            <img src="bg25.jpg" alt="">
+            <div class="info">
+                <h2>Optic Glass</h2>
+                <p>Glass is a non-crystalline, often transparent amorphous solid, that has widespread practical, technological, and decorative use in, for example, window panes, tableware, and optics. Glass is most often formed by rapid cooling (quenching)
+                    of the molten form; some glasses such as volcanic glass are naturally occurring.</p>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="bg26.jpg" alt="">
+            <div class="info">
+                <h2>Fire Photo</h2>
+                <p>Fire is the rapid oxidation of a material in the exothermic chemical process of combustion, releasing heat, light, and various reaction products. Fire is hot because the conversion of the weak double bond in molecular oxygen,</p>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="bg27.jpg" alt="">
+            <div class="info">
+                <h2>City</h2>
+                <p>A city is a large human settlement. It can be defined as a permanent and densely settled place with administratively defined boundaries whose members work primarily on non-agricultural tasks</p>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="bg28.jpg" alt="">
+            <div class="info">
+                <h2>cigarettes</h2>
+                <p>A cigarette is a narrow cylinder containing burnable material, typically tobacco, that is rolled into thin paper for smoking</p>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="bg29.jpg" alt="">
+            <div class="info">
+                <h2>Sunset</h2>
+                <p>Sunset, also known as sundown, is the daily disappearance of the Sun below the horizon due to Earth's rotation..</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="btn active"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        var slides = document.querySelectorAll('.slider');
+        var btns = document.querySelectorAll('.btn');
+        let currentSlide = 1
+
+
+        var manualNav = function(manual) {
+
+            slides.forEach((slider) => {
+                slider.classList.remove('active');
+                btns.forEach((btn) => {
+                    btn.classList.remove('active');
+                });
+
+
+            });
+
+
+
+            slides[manual].classList.add('active');
+            btns[manual].classList.add('active');
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                manualNav(i);
+                currentSlide = i;
+
+            });
+
+        });
+        //java//
+        var repeat = function(activeGlass) {
+            let active = document.getElementsByClassName('active');
+            let i = 1;
+
+            var repeater = () => {
+                setTimeout(function() {
+                    [...active].forEach((activeSlide) => {
+                        activeSlide.classList.remove('active')
+
+                    });
+
+                    slides[i].classList.add('active');
+                    btns[i].classList.add('active');
+                    i++;
+
+                    if (slides.length == i) {
+                        i = 0;
+                    }
+                    if (i >= slides.length) {
+                        return;
+                    }
+                    repeater();
+                }, 10000);
+            }
+            repeater();
+        }
+        repeat();
+    </script>
+
+</body>
+
+</html>
